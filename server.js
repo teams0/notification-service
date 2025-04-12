@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
 
 app.use(express.json());
@@ -8,4 +9,6 @@ app.post('/notifications', (req, res) => {
   res.send('Notification logged');
 });
 
-app.listen(5003, () => console.log('Notification Service on 5003'));
+mongoose.connect('mongodb+srv://Matheesha:math123@weddingplanner.crwciem.mongodb.net')
+  .then(() => app.listen(5003, () => console.log('Category Service on 5003')))
+  .catch(console.error);
